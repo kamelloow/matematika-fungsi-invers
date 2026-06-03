@@ -1,0 +1,427 @@
+﻿<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fungsi Invers — Matematika SMK Kelas 11</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+<!-- LOADING SCREEN -->
+<div class="loader" id="loader">
+  <div class="loader-inner">
+    <div class="loader-logo">f<sup>-1</sup></div>
+    <div class="loader-bar"><div class="loader-fill" id="loaderFill"></div></div>
+    <div class="loader-text">Memuat materi...</div>
+  </div>
+</div>
+
+<!-- CANVAS -->
+<canvas id="bgCanvas"></canvas>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="#home" class="nav-logo">
+      <span class="logo-sym">f<sup>-1</sup></span>
+      <span class="logo-txt">MathSMK</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="nav-link active">Home</a></li>
+      <li><a href="#materi" class="nav-link">Materi</a></li>
+      <li><a href="#contoh" class="nav-link">Contoh Soal</a></li>
+      <li><a href="#quiz" class="nav-link">Quiz</a></li>
+      <li><a href="#tentang" class="nav-link">Tentang</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" title="Toggle tema">
+        <i class="fas fa-moon" id="themeIcon"></i>
+      </button>
+      <button class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-badge"><i class="fas fa-star"></i> Matematika SMK Kelas XI</div>
+    <h1 class="hero-title">Fungsi<br/><span class="grad-text">Invers</span></h1>
+    <p class="hero-sub">Pelajari konsep fungsi invers secara interaktif — dari teori, contoh soal, hingga quiz seru. Dirancang khusus untuk siswa SMK kelas 11.</p>
+    <div class="hero-btns">
+      <a href="#materi" class="btn btn-primary"><i class="fas fa-rocket"></i> Mulai Belajar</a>
+      <a href="#quiz" class="btn btn-outline"><i class="fas fa-gamepad"></i> Coba Quiz</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><span class="hstat-n">5</span><span class="hstat-l">Topik</span></div>
+      <div class="hstat-div"></div>
+      <div class="hstat"><span class="hstat-n">6</span><span class="hstat-l">Contoh Soal</span></div>
+      <div class="hstat-div"></div>
+      <div class="hstat"><span class="hstat-n">10</span><span class="hstat-l">Soal Quiz</span></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hv-card glass">
+      <div class="hv-label">Definisi Fungsi Invers</div>
+      <div class="hv-formula">f<sup>-1</sup>(x)</div>
+      <div class="hv-note">Jika f(a) = b, maka f<sup>-1</sup>(b) = a</div>
+    </div>
+    <div class="orbit r1"></div>
+    <div class="orbit r2"></div>
+    <div class="odot d1"><span>x</span></div>
+    <div class="odot d2"><span>y</span></div>
+    <div class="odot d3"><span>∞</span></div>
+  </div>
+</section>
+
+<!-- MATERI -->
+<section class="section" id="materi">
+  <div class="container">
+    <div class="sec-header reveal">
+      <div class="sec-badge">📚 Materi Lengkap</div>
+      <h2 class="sec-title">Pelajari Fungsi Invers</h2>
+      <p class="sec-desc">Materi disusun bertahap dengan bahasa yang mudah dipahami siswa SMK kelas 11.</p>
+    </div>
+    <!-- Pengertian: teks penuh tanpa kotak -->
+    <div class="pengertian-block reveal">
+      <div class="pb-icon"><i class="fas fa-book-open"></i></div>
+      <h3 class="pb-title">Pengertian Fungsi Invers</h3>
+      <p class="pb-desc">Fungsi invers adalah <strong>kebalikan dari suatu fungsi</strong>. Jika fungsi <em>f</em> memetakan nilai <em>x</em> ke <em>y</em>, maka fungsi invers <em>f⁻¹</em> memetakan <em>y</em> kembali ke <em>x</em>. Dengan kata lain, fungsi invers "membalik" proses pemetaan yang dilakukan fungsi asalnya.</p>
+      <div class="pb-formula">Jika f(x) = y, maka f⁻¹(y) = x</div>
+      <p class="pb-tip"><i class="fas fa-lightbulb"></i> <strong>Contoh sederhana:</strong> Jika f(2) = 5, maka f⁻¹(5) = 2</p>
+    </div>
+
+    <div class="materi-grid">
+
+      <div class="mcard glass reveal">
+        <div class="mcard-icon" style="--ic:#ec4899"><i class="fas fa-check-circle"></i></div>
+        <h3>Syarat Fungsi Memiliki Invers</h3>
+        <p>Tidak semua fungsi memiliki invers. Fungsi harus bersifat <strong>bijektif</strong> — yaitu injektif sekaligus surjektif.</p>
+        <ul class="syarat-list">
+          <li><i class="fas fa-arrow-right"></i><div><strong>Injektif (Satu-satu):</strong> Setiap nilai x berbeda menghasilkan y yang berbeda.</div></li>
+          <li><i class="fas fa-arrow-right"></i><div><strong>Surjektif (Onto):</strong> Setiap anggota kodomain adalah hasil pemetaan dari domain.</div></li>
+          <li><i class="fas fa-arrow-right"></i><div><strong>Bijektif:</strong> Injektif + Surjektif = syarat utama memiliki invers.</div></li>
+        </ul>
+      </div>
+
+      <div class="mcard glass reveal">
+        <div class="mcard-icon" style="--ic:#8b5cf6"><i class="fas fa-calculator"></i></div>
+        <h3>Cara Menentukan Fungsi Invers</h3>
+        <p>Ikuti 4 langkah berikut untuk mencari f⁻¹(x) dari f(x):</p>
+        <div class="steps-list">
+          <div class="step"><div class="snum">1</div><div>Tulis <strong>y = f(x)</strong></div></div>
+          <div class="step"><div class="snum">2</div><div>Nyatakan <strong>x dalam y</strong></div></div>
+          <div class="step"><div class="snum">3</div><div>Ganti <strong>y dengan x</strong></div></div>
+          <div class="step"><div class="snum">4</div><div>Hasil adalah <strong>f⁻¹(x)</strong></div></div>
+        </div>
+      </div>
+
+      <div class="mcard glass reveal">
+        <div class="mcard-icon" style="--ic:#f472b6"><i class="fas fa-superscript"></i></div>
+        <h3>Rumus Fungsi Invers</h3>
+        <p>Untuk fungsi linear <strong>f(x) = ax + b</strong>:</p>
+        <div class="mcard-formula big">f⁻¹(x) = (x − b) / a</div>
+        <p style="margin-top:0.8rem">Untuk fungsi pecahan <strong>f(x) = (ax+b)/(cx+d)</strong>:</p>
+        <div class="mcard-formula">f⁻¹(x) = (dx − b) / (a − cx)</div>
+        <p class="note-txt"><i class="fas fa-info-circle"></i> Syarat: a ≠ 0 dan cx + d ≠ 0</p>
+      </div>
+
+      <div class="mcard glass reveal wide">
+        <div class="mcard-icon" style="--ic:#c084fc"><i class="fas fa-list-ol"></i></div>
+        <h3>Langkah Penyelesaian Fungsi Invers</h3>
+        <p>Contoh: Tentukan f⁻¹(x) dari <strong>f(x) = 3x + 6</strong></p>
+        <div class="sol-flow">
+          <div class="sf-step">
+            <div class="sf-num">Langkah 1</div>
+            <div class="sf-body"><strong>Tulis y = f(x)</strong><br/>y = 3x + 6<br/><span class="sf-why">Kita ganti f(x) dengan y agar lebih mudah dimanipulasi secara aljabar.</span></div>
+          </div>
+          <div class="sf-arr"><i class="fas fa-chevron-right"></i></div>
+          <div class="sf-step">
+            <div class="sf-num">Langkah 2</div>
+            <div class="sf-body"><strong>Isolasi x</strong><br/>3x = y − 6<br/>x = (y − 6) / 3<br/><span class="sf-why">Kita pindahkan semua suku yang mengandung x ke satu sisi untuk mendapatkan nilai x.</span></div>
+          </div>
+          <div class="sf-arr"><i class="fas fa-chevron-right"></i></div>
+          <div class="sf-step">
+            <div class="sf-num">Langkah 3</div>
+            <div class="sf-body"><strong>Ganti y → x</strong><br/>f⁻¹(x) = (x − 6) / 3<br/><span class="sf-why">Karena notasi fungsi menggunakan x sebagai variabel input, kita ganti y dengan x.</span></div>
+          </div>
+          <div class="sf-arr"><i class="fas fa-chevron-right"></i></div>
+          <div class="sf-step highlight">
+            <div class="sf-num">Hasil</div>
+            <div class="sf-body"><strong>f⁻¹(x) = (x − 6) / 3</strong><br/><span class="sf-why">Inilah fungsi invers dari f(x) = 3x + 6.</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTOH SOAL -->
+<section class="section" id="contoh">
+  <div class="container">
+    <div class="sec-header reveal">
+      <div class="sec-badge">✏️ Latihan</div>
+      <h2 class="sec-title">Contoh Soal</h2>
+      <p class="sec-desc">Setiap langkah penyelesaian disertai penjelasan agar kamu benar-benar paham.</p>
+    </div>
+    <div class="soal-grid">
+
+      <div class="soal-card glass reveal">
+        <div class="soal-head"><span class="soal-num">Soal 1</span><span class="soal-tag">Linear</span></div>
+        <div class="soal-body">
+          <div class="dik"><strong><i class="fas fa-info-circle"></i> Diketahui:</strong><p>f(x) = 2x + 4</p></div>
+          <div class="dit"><strong><i class="fas fa-question-circle"></i> Ditanya:</strong><p>Tentukan f⁻¹(x)!</p></div>
+          <button class="btn-toggle" onclick="toggleSol(this)"><i class="fas fa-eye"></i> Lihat Penyelesaian</button>
+          <div class="penyelesaian hidden">
+            <div class="sol-step-item"><span class="sol-step-n">1</span><div><div class="sol-line">y = 2x + 4</div><div class="sol-why">Ganti f(x) dengan y untuk memudahkan manipulasi aljabar.</div></div></div>
+            <div class="sol-step-item"><span class="sol-step-n">2</span><div><div class="sol-line">2x = y − 4</div><div class="sol-why">Pindahkan konstanta 4 ke ruas kanan dengan mengubah tandanya.</div></div></div>
+            <div class="sol-step-item"><span class="sol-step-n">3</span><div><div class="sol-line">x = (y − 4) / 2</div><div class="sol-why">Bagi kedua ruas dengan koefisien x yaitu 2, untuk mendapatkan nilai x.</div></div></div>
+            <div class="sol-step-item"><span class="sol-step-n">4</span><div><div class="sol-line">Ganti y dengan x</div><div class="sol-why">Karena variabel input fungsi adalah x, kita ganti y menjadi x.</div></div></div>
+            <div class="sol-result">∴ f⁻¹(x) = (x − 4) / 2</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="soal-card glass reveal">
+        <div class="soal-head"><span class="soal-num">Soal 2</span><span class="soal-tag">Linear</span></div>
+        <div class="soal-body">
+          <div class="dik"><strong><i class="fas fa-info-circle"></i> Diketahui:</strong><p>f(x) = 5x − 10</p></div>
+          <div class="dit"><strong><i class="fas fa-question-circle"></i> Ditanya:</strong><p>Tentukan f⁻¹(x)!</p></div>
+          <button class="btn-toggle" onclick="toggleSol(this)"><i class="fas fa-eye"></i> Lihat Penyelesaian</button>
+          <div class="penyelesaian hidden">
+            <div class="sol-step-item"><span class="sol-step-n">1</span><div><div class="sol-line">y = 5x − 10</div><div class="sol-why">Tulis ulang fungsi dengan mengganti f(x) menjadi y.</div></div></div>
+            <div class="sol-step-item"><span class="sol-step-n">2</span><div><div class="sol-line">5x = y + 10</div><div class="sol-why">Pindahkan −10 ke ruas kanan, tandanya berubah menjadi +10.</div></div></div>
+            <div class="sol-step-item"><span class="sol-step-n">3</span><div><div class="sol-line">x = (y + 10) / 5</div><div class="sol-why">Bagi kedua ruas dengan 5 untuk mengisolasi x.</div></div></div>
+            <div class="sol-result">∴ f⁻¹(x) = (x + 10) / 5</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="soal-card glass reveal">
+        <div class="soal-head"><span class="soal-num">Soal 3</span><span class="soal-tag">Pecahan</span></div>
+        <div class="soal-body">
+          <div class="dik"><strong><i class="fas fa-info-circle"></i> Diketahui:</strong><p>f(x) = (2x + 1) / (x − 3)</p></div>
+          <div class="dit"><strong><i class="fas fa-question-circle"></i> Ditanya:</strong><p>Tentukan f⁻¹(x)!</p></div>
+          <button class="btn-toggle" onclick="toggleSol(this)"><i class="fas fa-eye"></i> Lihat Penyelesaian</button>
+          <div class="penyelesaian hidden">
+            <div class="sol-step-item"><span class="sol-step-n">1</span><div><div class="sol-line">y = (2x + 1) / (x − 3)</div><div class="sol-why">Ganti f(x) dengan y.</div></div></div>
+            <div class="sol-step-item"><span class="sol-step-n">2</span><div><div class="sol-line">y(x − 3) = 2x + 1</div><div class="sol-why">Kalikan kedua ruas dengan (x−3) untuk menghilangkan penyebut.</div></div></div>
+            <div class="sol-step-item"><span class="sol-step-n">3</span><div><div class="sol-line">xy − 3y = 2x + 1</div><div class="sol-why">Distribusikan y ke dalam kurung.</div></div></div>
+            <div class="sol-step-item"><span class="sol-step-n">4</span><div><div class="sol-line">xy − 2x = 3y + 1</div><div class="sol-why">Kumpulkan semua suku yang mengandung x di ruas kiri.</div></div></div>
+            <div class="sol-step-item"><span class="sol-step-n">5</span><div><div class="sol-line">x(y − 2) = 3y + 1</div><div class="sol-why">Faktorkan x dari ruas kiri.</div></div></div>
+            <div class="sol-step-item"><span class="sol-step-n">6</span><div><div class="sol-line">x = (3y + 1) / (y − 2)</div><div class="sol-why">Bagi kedua ruas dengan (y−2) untuk mendapatkan x.</div></div></div>
+            <div class="sol-result">∴ f⁻¹(x) = (3x + 1) / (x − 2)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="soal-card glass reveal">
+        <div class="soal-head"><span class="soal-num">Soal 4</span><span class="soal-tag">Nilai</span></div>
+        <div class="soal-body">
+          <div class="dik"><strong><i class="fas fa-info-circle"></i> Diketahui:</strong><p>f(x) = 3x + 9</p></div>
+          <div class="dit"><strong><i class="fas fa-question-circle"></i> Ditanya:</strong><p>Nilai f⁻¹(6) = ?</p></div>
+          <button class="btn-toggle" onclick="toggleSol(this)"><i class="fas fa-eye"></i> Lihat Penyelesaian</button>
+          <div class="penyelesaian hidden">
+            <div class="sol-step-item"><span class="sol-step-n">1</span><div><div class="sol-line">y = 3x + 9 → x = (y − 9) / 3</div><div class="sol-why">Cari dulu rumus f⁻¹(x) dengan langkah standar.</div></div></div>
+            <div class="sol-step-item"><span class="sol-step-n">2</span><div><div class="sol-line">f⁻¹(x) = (x − 9) / 3</div><div class="sol-why">Ganti y dengan x untuk mendapatkan rumus f⁻¹(x).</div></div></div>
+            <div class="sol-step-item"><span class="sol-step-n">3</span><div><div class="sol-line">f⁻¹(6) = (6 − 9) / 3 = −3/3</div><div class="sol-why">Substitusikan x = 6 ke dalam rumus f⁻¹(x).</div></div></div>
+            <div class="sol-result">∴ f⁻¹(6) = −1</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="soal-card glass reveal">
+        <div class="soal-head"><span class="soal-num">Soal 5</span><span class="soal-tag">Pecahan</span></div>
+        <div class="soal-body">
+          <div class="dik"><strong><i class="fas fa-info-circle"></i> Diketahui:</strong><p>f(x) = (x + 5) / (2x − 1)</p></div>
+          <div class="dit"><strong><i class="fas fa-question-circle"></i> Ditanya:</strong><p>Tentukan f⁻¹(x)!</p></div>
+          <button class="btn-toggle" onclick="toggleSol(this)"><i class="fas fa-eye"></i> Lihat Penyelesaian</button>
+          <div class="penyelesaian hidden">
+            <div class="sol-step-item"><span class="sol-step-n">1</span><div><div class="sol-line">y(2x − 1) = x + 5</div><div class="sol-why">Kalikan silang untuk menghilangkan penyebut.</div></div></div>
+            <div class="sol-step-item"><span class="sol-step-n">2</span><div><div class="sol-line">2xy − y = x + 5</div><div class="sol-why">Distribusikan y ke dalam kurung.</div></div></div>
+            <div class="sol-step-item"><span class="sol-step-n">3</span><div><div class="sol-line">2xy − x = y + 5 → x(2y − 1) = y + 5</div><div class="sol-why">Kumpulkan suku x di kiri, faktorkan.</div></div></div>
+            <div class="sol-result">∴ f⁻¹(x) = (x + 5) / (2x − 1)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="soal-card glass reveal">
+        <div class="soal-head"><span class="soal-num">Soal 6</span><span class="soal-tag">Verifikasi</span></div>
+        <div class="soal-body">
+          <div class="dik"><strong><i class="fas fa-info-circle"></i> Diketahui:</strong><p>f(x) = 4x − 8</p></div>
+          <div class="dit"><strong><i class="fas fa-question-circle"></i> Ditanya:</strong><p>Buktikan f(f⁻¹(x)) = x!</p></div>
+          <button class="btn-toggle" onclick="toggleSol(this)"><i class="fas fa-eye"></i> Lihat Penyelesaian</button>
+          <div class="penyelesaian hidden">
+            <div class="sol-step-item"><span class="sol-step-n">1</span><div><div class="sol-line">f⁻¹(x) = (x + 8) / 4</div><div class="sol-why">Cari f⁻¹(x) terlebih dahulu dengan langkah standar.</div></div></div>
+            <div class="sol-step-item"><span class="sol-step-n">2</span><div><div class="sol-line">f(f⁻¹(x)) = 4·((x+8)/4) − 8</div><div class="sol-why">Substitusikan f⁻¹(x) ke dalam f(x) = 4x − 8.</div></div></div>
+            <div class="sol-step-item"><span class="sol-step-n">3</span><div><div class="sol-line">= (x + 8) − 8 = x</div><div class="sol-why">Sederhanakan: 4 dan 4 saling menghilangkan, lalu +8 dan −8 saling menghilangkan.</div></div></div>
+            <div class="sol-result">∴ f(f⁻¹(x)) = x ✓ Terbukti!</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section class="section" id="quiz">
+  <div class="container">
+    <div class="sec-header reveal">
+      <div class="sec-badge">🎯 Uji Kemampuan</div>
+      <h2 class="sec-title">Quiz Interaktif</h2>
+      <p class="sec-desc">Isi data dirimu terlebih dahulu, lalu uji pemahamanmu dengan 10 soal pilihan ganda!</p>
+    </div>
+    <div class="quiz-wrap glass reveal">
+
+      <!-- LOGIN -->
+      <div id="quizLogin">
+        <div class="ql-icon">📝</div>
+        <h3>Masukkan Data Dirimu</h3>
+        <p>Data ini digunakan untuk menampilkan hasil quiz kamu.</p>
+        <form class="ql-form" onsubmit="startQuiz(event)">
+          <div class="ql-field">
+            <label><i class="fas fa-user"></i> Nama Lengkap</label>
+            <input type="text" id="inputNama" placeholder="Masukkan nama lengkap..." required/>
+          </div>
+          <div class="ql-field">
+            <label><i class="fas fa-school"></i> Kelas</label>
+            <input type="text" id="inputKelas" placeholder="Contoh: XI TKJ 1" required/>
+          </div>
+          <div class="ql-field">
+            <label><i class="fas fa-hashtag"></i> Nomor Presensi</label>
+            <input type="number" id="inputNo" placeholder="Contoh: 15" min="1" max="40" required/>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:0.5rem">
+            <i class="fas fa-play"></i> Mulai Quiz
+          </button>
+        </form>
+      </div>
+
+      <!-- QUIZ SCREEN -->
+      <div id="quizScreen" class="hidden">
+        <div class="qz-topbar">
+          <div class="qz-user" id="qzUser"></div>
+          <span class="qz-score-live">Skor: <strong id="liveScore">0</strong></span>
+        </div>
+        <div class="qz-progress-bar"><div class="qz-progress-fill" id="progressFill"></div></div>
+        <div class="qz-counter" id="qzCounter">Soal 1 / 10</div>
+        <div class="qz-question" id="qzQuestion"></div>
+        <div class="qz-options" id="qzOptions"></div>
+        <div class="qz-feedback hidden" id="qzFeedback"></div>
+        <button class="btn btn-primary hidden" id="nextBtn" onclick="nextQuestion()">
+          Soal Berikutnya <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
+
+      <!-- RESULT -->
+      <div id="quizResult" class="hidden">
+        <div class="qr-emoji" id="qrEmoji"></div>
+        <h3 id="qrTitle"></h3>
+        <div class="qr-name" id="qrName"></div>
+        <p id="qrDesc"></p>
+        <div class="qr-score-box">
+          <div class="qr-score" id="qrScore"></div>
+          <div class="qr-label">Nilai Akhir</div>
+        </div>
+        <div class="qr-detail" id="qrDetail"></div>
+        <div class="qr-btns">
+          <button class="btn btn-primary" onclick="restartQuiz()"><i class="fas fa-redo"></i> Ulangi Quiz</button>
+          <button class="btn btn-outline" onclick="backToLogin()"><i class="fas fa-user"></i> Ganti Pengguna</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TENTANG -->
+<section class="section" id="tentang">
+  <div class="container">
+    <div class="sec-header reveal">
+      <div class="sec-badge">👤 Tentang</div>
+      <h2 class="sec-title">Tentang Website</h2>
+      <p class="sec-desc">Website ini dibuat sebagai media pembelajaran matematika interaktif untuk siswa SMK.</p>
+    </div>
+    <div class="tentang-wrap">
+      <div class="tentang-profile glass reveal">
+        <div class="tp-avatar">
+          <div class="tp-avatar-inner"><i class="fas fa-user-graduate"></i></div>
+          <div class="tp-avatar-ring"></div>
+        </div>
+        <div class="tp-info">
+          <h3>Fedya Jalilah Kamil Winola</h3>
+          <div class="tp-kelas"><i class="fas fa-school"></i> XI SIJA 1 SMKN 7 SEMARANG</div>
+          <p class="tp-bio">Saya adalah siswa SMK kelas 11 yang membuat website pembelajaran matematika ini sebagai proyek edukasi. Website ini dirancang untuk membantu teman-teman memahami materi Fungsi Invers dengan cara yang lebih menarik dan interaktif.</p>
+          <div class="tp-tags">
+            <span><i class="fas fa-code"></i> HTML & CSS</span>
+            <span><i class="fas fa-js"></i> JavaScript</span>
+            <span><i class="fas fa-calculator"></i> Matematika</span>
+          </div>
+        </div>
+      </div>
+      <div class="tentang-cards">
+        <div class="tc-card glass reveal">
+          <div class="tc-icon"><i class="fas fa-bullseye"></i></div>
+          <h4>Tujuan Website</h4>
+          <p>Membantu siswa SMK kelas 11 memahami konsep Fungsi Invers dengan cara yang mudah, visual, dan interaktif melalui materi, contoh soal, dan quiz.</p>
+        </div>
+        <div class="tc-card glass reveal">
+          <div class="tc-icon"><i class="fas fa-laptop-code"></i></div>
+          <h4>Teknologi</h4>
+          <p>Dibangun menggunakan HTML5, CSS3 modern dengan Glassmorphism, dan JavaScript vanilla untuk pengalaman belajar yang optimal.</p>
+        </div>
+        <div class="tc-card glass reveal">
+          <div class="tc-icon"><i class="fas fa-book"></i></div>
+          <h4>Kurikulum</h4>
+          <p>Materi mengacu pada kurikulum Matematika SMK kelas XI semester genap, sesuai standar kompetensi nasional.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-glow"></div>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#home" class="nav-logo"><span class="logo-sym">f<sup>-1</sup></span><span class="logo-txt">MathSMK</span></a>
+        <p>Media pembelajaran matematika interaktif untuk siswa SMK kelas 11.</p>
+      </div>
+      <div class="footer-nav">
+        <h4>Navigasi</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#materi">Materi</a></li>
+          <li><a href="#contoh">Contoh Soal</a></li>
+          <li><a href="#quiz">Quiz</a></li>
+          <li><a href="#tentang">Tentang</a></li>
+        </ul>
+      </div>
+      <div class="footer-info">
+        <h4>Informasi</h4>
+        <ul>
+          <li><i class="fas fa-users"></i> Fedya Jalilah Kamil Winola</li>
+          <li><i class="fas fa-school"></i> XI SIJA 1 SMKN 7 SEMARANG</li>
+          <li><i class="fas fa-calendar"></i> Tahun Pelajaran 2026</li>
+          <li><i class="fas fa-book-open"></i> Matematika — Fungsi Invers</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 MathSMK — Fungsi Invers. Dibuat dengan <i class="fas fa-heart" style="color:#f43f5e"></i> untuk siswa SMK kelas 11.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
